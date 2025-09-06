@@ -4,32 +4,53 @@ export default function Home() {
   const { data: session } = useSession();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <h1 className="text-4xl font-bold mb-6">RbxFlip 🎲</h1>
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
+      <h1>🎲 RbxFlip</h1>
 
       {!session ? (
         <>
-          <p className="mb-4">Sign in to continue 🚀</p>
+          <p>Sign in to continue 🚀</p>
           <button
             onClick={() => signIn("roblox")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "white",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
           >
             Sign in with Roblox
           </button>
         </>
       ) : (
         <>
-          <p className="mb-4">Welcome, {session.user.name}!</p>
+          <p>Welcome, {session.user.name}!</p>
           {session.user.image && (
             <img
               src={session.user.image}
               alt="avatar"
-              className="w-16 h-16 rounded-full mb-4"
+              style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                margin: "10px auto",
+              }}
             />
           )}
           <button
             onClick={() => signOut()}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "red",
+              color: "white",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
           >
             Sign out
           </button>
